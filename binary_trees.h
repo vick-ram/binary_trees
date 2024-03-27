@@ -72,23 +72,23 @@ int heap_extract(heap_t **root);
 int *heap_to_sorted_array(heap_t *heap, size_t *size);
 
 /**
- * typedef struct queue_node - queue node structure
+ * struct queue_node - queue node structure
  * @node: the node
  * @next: pointer to next node
  */
 typedef struct queue_node
 {
-    const binary_tree_t *node;
-    struct queue_node *next;
+	const binary_tree_t *node;
+	struct queue_node *next;
 } queue_node_t;
 /**
- * typedef struct queue - queue structure
+ * struct queue - queue structure
  * @front: end of queue pointer
  * @rear: start of queue pointer
  */
 typedef struct queue
 {
-    queue_node_t *front;
-    queue_node_t *rear;
+	queue_node_t *front;
+	queue_node_t *rear;
 } queue_t;
 #endif
