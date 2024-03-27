@@ -29,6 +29,27 @@ typedef struct binary_tree_s heap_t;
 
 void binary_tree_print(const binary_tree_t *);
 
+/**
+ * struct queue_node - queue node structure
+ * @node: the node
+ * @next: pointer to next node
+ */
+typedef struct queue_node
+{
+	const binary_tree_t *node;
+	struct queue_node *next;
+} queue_node_t;
+/**
+ * struct queue - queue structure
+ * @front: end of queue pointer
+ * @rear: start of queue pointer
+ */
+typedef struct queue
+{
+	queue_node_t *front;
+	queue_node_t *rear;
+} queue_t;
+
 binary_tree_t *binary_tree_node(binary_tree_t *parent, int value);
 binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value);
 binary_tree_t *binary_tree_insert_right(binary_tree_t *parent, int value);
@@ -71,24 +92,4 @@ heap_t *array_to_heap(int *array, size_t size);
 int heap_extract(heap_t **root);
 int *heap_to_sorted_array(heap_t *heap, size_t *size);
 
-/**
- * struct queue_node - queue node structure
- * @node: the node
- * @next: pointer to next node
- */
-typedef struct queue_node
-{
-	const binary_tree_t *node;
-	struct queue_node *next;
-} queue_node_t;
-/**
- * struct queue - queue structure
- * @front: end of queue pointer
- * @rear: start of queue pointer
- */
-typedef struct queue
-{
-	queue_node_t *front;
-	queue_node_t *rear;
-} queue_t;
 #endif
