@@ -46,12 +46,13 @@ void enqueue(queue_t *queue, const binary_tree_t *node)
 const binary_tree_t *dequeue(queue_t *queue)
 {
 	const binary_tree_t *node;
+	queue_node_t *temp;
 
 	if (queue->front == NULL)
 		return (NULL);
 
 	node = queue->front->node;
-	queue_node_t *temp = queue->front;
+	temp = queue->front;
 	queue->front = queue->front->next;
 	free(temp);
 
@@ -82,11 +83,12 @@ void binary_tree_levelorder(
 		const binary_tree_t *tree, void (*func)(int))
 {
 	const binary_tree_t *current;
+	queue_t *queue;
 
 	if (tree == NULL || func == NULL)
 		return;
 
-	queue_t *queue = queue_create();
+	queue = queue_create();
 	if (queue == NULL)
 		return;
 
